@@ -1,4 +1,5 @@
 class Comment
+  attr_reader :commenter, :body
   def initialize(commenter, body, blog)
     @commenter = commenter
     @body = body

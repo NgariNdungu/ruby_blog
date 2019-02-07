@@ -18,4 +18,10 @@ class TestComment < Test::Unit::TestCase
     end
   end
 
+  def test_can_retrieve_comment_content
+    comment = Comment.new("me", "some body", @blog)
+    assert_equal "me", comment.commenter
+    assert_equal "some body", comment.body
+  end
+
 end
