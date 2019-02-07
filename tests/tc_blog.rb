@@ -26,4 +26,8 @@ class TestBlog < Test::Unit::TestCase
     assert_equal title, @blog.title
     assert_equal text, @blog.text
   end
+
+  def test_blog_has_comments
+    assert false, "Blog doesn't support comments"
+  end
 end
