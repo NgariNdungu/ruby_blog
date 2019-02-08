@@ -15,4 +15,6 @@ print "\n"
 p "retrieving data"
 p "First blog"
 p "Title: #{b1.title}, text: #{b1.text}"
-p "And comments: #{b1.comments}"
+p "And comments: #{comments = b1.comments}"
+p "And comment fields: commenter: #{comments.first.commenter},
+ body: #{comments.first.body}"
