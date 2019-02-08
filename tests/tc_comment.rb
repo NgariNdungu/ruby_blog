@@ -22,6 +22,7 @@ class TestComment < Test::Unit::TestCase
     comment = Comment.new("me", "some body", @blog)
     assert_equal "me", comment.commenter
     assert_equal "some body", comment.body
+    assert_equal @blog, comment.blog
   end
 
 end

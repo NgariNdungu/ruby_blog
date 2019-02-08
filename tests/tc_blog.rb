@@ -12,12 +12,12 @@ class TestBlog < Test::Unit::TestCase
     end
   end
 
-  def test_can_retrieve_content
+  def test_can_retrieve_blog_content
     assert_equal "title", @blog.title
     assert_equal "text", @blog.text
   end
 
-  def test_can_update_content
+  def test_can_update_blog_content
     title = "some other title"
     text = "a bit more text"
     @blog.title = title
@@ -29,12 +29,14 @@ class TestBlog < Test::Unit::TestCase
   def test_blog_has_comments
     assert_respond_to @blog, :comments, "Comments not supported"
 
-    assert_instance_of Array, @blog.comments
-    assert_instance_of Comment, @blog.comments[0]
+    assert_instance_of Blog::BlogComments, @blog.comments
   end
 
   def test_can_create_comment_from_blog
     assert_respond_to @blog.comments, :new
+    assert_nothing_raised(StandardError) do
+      comment = @blog.comments.new("me", "comment")
+    end
   end
 
   def test_can_retrieve_blogs
