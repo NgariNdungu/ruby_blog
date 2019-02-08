@@ -1,5 +1,6 @@
 class Comment
-  attr_reader :commenter, :body, :blog
+  attr_accessor :body
+  attr_reader :commenter, :blog
   def initialize(commenter, body, blog)
     set_blog(blog)
     @commenter = commenter
@@ -7,8 +8,17 @@ class Comment
   end  
 
   def inspect
-    [@commenter, @body, @blog.title]
+    {
+      "commenter": @commenter,
+      "body": @body,
+      "blog": @blog.title
+    }
   end
+
+  def to_s
+    [@commenter, @body, @blog.title].to_s
+  end
+
   private
   def set_blog(blog)
     if blog.instance_of? Blog

@@ -9,13 +9,34 @@ class Blog
     @@instances.push self
   end  
 
+  def comments
+    @comments
+  end
+
+  def inspect
+    {
+    "title": @title,
+    "text": @text,
+    "comments": @comments.size
+    }
+  end
+
+  def self.[](i)
+    @@instances[i]
+  end
+
+  def self.first
+    @@instances.first
+  end
+
+  def self.last
+    @@instances.last
+  end
+  
   def self.all
     @@instances
   end
 
-  def comments
-    @comments
-  end
 
   class BlogComments
     def initialize(blog)
@@ -33,8 +54,24 @@ class Blog
       @comments
     end
 
+    def to_s
+      @comments.to_s
+    end
+
     def [](i)
       @comments[i]
+    end
+    
+    def size
+      @comments.size
+    end
+
+    def first
+      @comments.first
+    end
+    
+    def last
+      @comments.last
     end
   end
 end
